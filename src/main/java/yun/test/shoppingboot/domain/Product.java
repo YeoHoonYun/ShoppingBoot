@@ -26,6 +26,8 @@ public class Product {
     private int price;
     @Column(name = "quanity")
     private int quanity;
+    @Column(name = "file_path")
+    private String filePath;
 
     @OneToMany(mappedBy = "product")
     private List<Review> reviewList;
