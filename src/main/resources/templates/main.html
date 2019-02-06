@@ -1,6 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--TODO-->
+<!--<script type="text/javascript">-->
+  <!--window.onload = function(){-->
+    <!--var url = location.href.split('?')[1].split('=')[1];-->
+    <!--dataGet(url);-->
+    <!--dataListGet(url);-->
+  <!--};-->
 
+  <!--function dataGet(url) {-->
+    <!--$.ajax({-->
+      <!--type: 'GET',-->
+      <!--contentType: 'application/json',-->
+      <!--url: '/customer/eventViewGet.json'+'?seq='+url,-->
+      <!--dataType: "json",-->
+      <!--success: function(data){-->
+        <!--eventCreate(data);-->
+      <!--},-->
+      <!--error: function(e){-->
+        <!--alert(e);-->
+      <!--}-->
+    <!--});-->
+  <!--};-->
+  <!--function dataListGet() {-->
+    <!--$.ajax({-->
+      <!--type: 'GET',-->
+      <!--contentType: 'application/json',-->
+      <!--url: '/customer/eventGet.json',-->
+      <!--dataType: "json",-->
+      <!--success: function(data){-->
+        <!--console.log(data);-->
+      <!--},-->
+      <!--error: function(e){-->
+        <!--alert(e);-->
+      <!--}-->
+    <!--});-->
+  <!--};-->
+
+  <!--function eventCreate(data){-->
+    <!--console.log(data);-->
+    <!--var code = '<ul>\-->
+			<!--<li class="event_dtext01">카테고리</li>\-->
+			<!--<li class="event_dtext02">product/'+data.gubun+'</li>\-->
+			<!--<li class="event_dtext01">제목</li>\-->
+			<!--<li class="event_dtext02">'+data.title+'</li>\-->
+			<!--<li class="event_dtext01">키워드</li>\-->
+			<!--<li class="event_dtext02">'+data.keywords+'</li>\-->
+			<!--<li class="event_dtext01">내용</li>\-->
+			<!--<li class="event_dtext02">'+data.contents+'</li>\-->
+			<!--<li class="event_dtext01">날짜</li>\-->
+			<!--<li class="event_dtext02">'+data.date+'</li>\-->
+		<!--</ul>'-->
+
+    <!--document.getElementById('event').innerHTML = code;-->
+
+    <!--var code = '<div class="ev_stitle01">\-->
+ 		<!--<a href="/customer/customer.do">목록 돌아가기 [1/17]</a><span class="ev_t_btn">\-->
+ 		<!--<img src="/images/contents/event_btn_down.gif" alt="다운로드"> \-->
+ 		<!--<img src="/images/contents/event_btn_exp.gif" alt="확대보기"></span></div>\-->
+		<!--<img src='+data.img+' alt="" style="width:631px; height:425px;" class="event_imgwiew">'-->
+
+    <!--document.getElementById('img_event').innerHTML = code;-->
+  <!--}-->
+<!--</script>-->
 <head>
 
   <meta charset="utf-8">
