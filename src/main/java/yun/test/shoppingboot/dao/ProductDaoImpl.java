@@ -21,4 +21,13 @@ public class ProductDaoImpl implements ProductDao{
         Product product= productRepository.getProductById(id);
         return product;
     }
+    public Page<Product> productByCategory(Long id, Pageable pageable){
+        Page<Product> products= productRepository.getProductByCategory(id, pageable);
+        return products;
+    }
+
+    public Page<Product> productByName(String name, Pageable pageable){
+        Page<Product> products= productRepository.getProductByName(name, pageable);
+        return products;
+    }
 }

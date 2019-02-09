@@ -4,6 +4,7 @@ insert into users (user_id, name, address, email, nickname, passwd, reg_date)
  values(2, "윤여훈", "경기도 안산시", "cjswo9207@naver.com","Yun", "1234", now());
 
 insert into categorys(category_id, name) values (1, "생활용품");
+insert into categorys(category_id, name) values (2, "전자제품");
 
 insert into roles (role_id, name) values (1, 'USER');
 insert into roles (role_id, name) values (2, 'ADMIN');

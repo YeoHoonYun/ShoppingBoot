@@ -13,4 +13,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT p FROM Product p WHERE product_id = :productId")
     Product getProductById(@Param("productId") Long productId);
+
+    @Query("SELECT p FROM Product p WHERE p.category.categoryId = :categoryId")
+    public Page<Product> getProductByCategory(@Param("categoryId") Long categoryId, Pageable pageable);
+
+    @Query("SELECT p FROM Product p WHERE p.name LIKE CONCAT('%',UPPER(:name),'%')")
+    public Page<Product> getProductByName(@Param("name") String name, Pageable pageable);
 }

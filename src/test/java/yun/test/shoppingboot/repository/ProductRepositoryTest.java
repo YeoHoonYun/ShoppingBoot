@@ -35,4 +35,13 @@ public class ProductRepositoryTest {
         Product product= productRepository.getProductById(1L);
         System.out.println(product.getName());
     }
+
+    @Test
+    public void getProductByName() throws Exception{
+        Pageable page = PageRequest.of(0,6);
+        Page<Product> all = productRepository.getProductByName("Z",page);
+        for(Product product : all){
+            System.out.println(product.getName());
+        }
+    }
 }

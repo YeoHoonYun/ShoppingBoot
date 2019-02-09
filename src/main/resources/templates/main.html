@@ -29,11 +29,21 @@
 
 
       <div class="col-lg-3">
+
         <!--Category-->
-        <div include-html="common/category.html"><script>includeHTML();</script></div>
+        <h1 class="my-4">Shop Name</h1>
+        <form class="navbar-form navbar-left" role="search"  method="post" action="/search">
+          <div class="form-group">
+            <input type="text" name="search" class="form-control" placeholder="검색">
+          </div>
+          <button type="submit" class="btn btn-default"></button>
+        </form>
+        <ul class="list-group list-group-flush" th:each="category: ${categorys}">
+          <li class="list-group-item" id="myDIV">
+            <a th:href="@{/category(category=${category.categoryId})}" th:text="${category.name}">Category 1</a>
+          </li>
+        </ul>
       </div>
-
-
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
@@ -95,7 +105,7 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  <div include-html="common/footer.html"><script>includeHTML();</script></div>
+  <footer include-html="common/footer.html"><script>includeHTML();</script></footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
