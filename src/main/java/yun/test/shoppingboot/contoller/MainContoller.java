@@ -1,15 +1,24 @@
 package yun.test.shoppingboot.contoller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import yun.test.shoppingboot.service.CategoryService;
+import yun.test.shoppingboot.service.ProductService;
 
 @Controller
 public class MainContoller {
+    @Autowired
+    CategoryService categoryService;
+    @Autowired
+    ProductService productService;
 
     @GetMapping(value = {"/", "main"})
     public String main(Model model) {
+        model.addAttribute("products",productService.productPageListAll(0));
+        model.addAttribute("categorys",categoryService.categoryListAll());
         return "main";
     }
 
@@ -17,19 +26,4 @@ public class MainContoller {
     public String searchMain(Model model) {
         return "main";
     }
-
-    // TODO
-//    @ResponseBody
-//    @RequestMapping(value="/customer/eventViewGet.json")
-//    public CustomerVO eventViewGet(ModelMap model, HttpServletRequest ret,  HttpServletResponse req, CustomerVO customerVO, @RequestParam("seq") String seq)
-//            throws Exception {
-//
-//        CustomerVO result = new CustomerVO();
-//        customerVO.setSeq(seq);
-//        result=customerService.eventViewGet(customerVO);
-//
-//        System.out.println(result.getKeywords());
-//
-//        return result;
-//    }
 }

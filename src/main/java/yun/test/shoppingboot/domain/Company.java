@@ -26,7 +26,7 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Contact> contactList;
 
-    public Company(List<Product> productList, List<Contact> contactList) {
+    public Company() {
         this.productList = new ArrayList<>();
         this.contactList = new ArrayList<>();
     }

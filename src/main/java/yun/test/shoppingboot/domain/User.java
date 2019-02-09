@@ -48,7 +48,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Review> reviewList;
 
-    public User(List<Bucket> bucketList, Set<Role> roles, List<Order> orderList, List<Review> reviewList) {
+    public User() {
         this.bucketList = new ArrayList<>();
         this.roles = new HashSet<>();
         this.orderList = new ArrayList<>();
