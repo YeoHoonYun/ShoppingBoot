@@ -32,17 +32,20 @@
 
       <div class="col-lg-3">
         <!--Category-->
-        <h1 class="my-4">Shop Name</h1>
+        <h1 class="my-4">Yun Shop</h1>
         <form class="navbar-form navbar-left" role="search"  method="post" action="/search">
           <div class="form-group">
             <input type="text" name="search" class="form-control" placeholder="검색">
           </div>
           <button type="submit" class="btn btn-default"></button>
         </form>
-        <ul class="list-group list-group-flush" th:each="category: ${categorys}">
-        <li class="list-group-item" id="myDIV">
-          <a th:href="@{/category(category=${category.categoryId})}" th:text="${category.name}">Category 1</a>
-        </li>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="/main">전체 상품</a>
+          </li>
+          <li class="list-group-item" th:each="category: ${categorys}">
+            <a th:href="@{/category(category=${category.categoryId})}" th:text="${category.name}">Category 1</a>
+          </li>
         </ul>
       </div>
       <!-- /.col-lg-3 -->
@@ -52,8 +55,9 @@
         <div class="card mt-4">
           <img class="card-img-top img-fluid" th:src="@{${'/img/bar/' + product.filePath + ''}}" alt="" height="200" width="450">
           <div class="card-body">
-            <h3 class="card-title" th:text="${product.name}">Product Name</h3>
-            <h4 th:text="${product.price + '원'}">$24.99</h4>
+            <h5 class="card-title" th:text="${'상품명 : '+product.name}">Product Name</h5>
+            <h5 th:text="${'가격 : '+ product.price + '원'}"></h5>
+            <h5 th:text="${'회사 : '+product.company.name}"></h5>
             <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>-->
             <!--<span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>-->
             <!--4.0 stars-->
@@ -61,14 +65,21 @@
         </div>
         <!-- /.card -->
 
-        <div class="card card-outline-secondary my-4">
+        <!--button-->
+        <div class="btn-group float-right" role="group" aria-label="Basic example">
+              <a class="btn btn-outline-secondary" href="/main" role="button">목록</a>
+              <a class="btn btn-outline-secondary" href="/main" role="button">리뷰</a>
+              <a class="btn btn-outline-secondary" href="/main" role="button">수정</a>
+        </div>
+      <br/>
+          <div class="card card-outline-secondary my-4">
           <div class="card-header">
             Product Reviews
           </div>
           <div class="card-body" th:each="review: ${reviews}">
             <b th:text="${review.user.nickname}"/>
-            <p th:text="${review.content}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted" th:text="${review.regDate}">Posted by Anonymous on 3/1/17</small>
+            <p th:text="${review.content}"></p>
+            <small class="text-muted" th:text="${review.regDate}"></small>
             <hr>
             <!--<a href="#" class="btn btn-success">Leave a Review</a>-->
           </div>
@@ -83,8 +94,8 @@
   </div>
   <!-- /.container -->
 
-  <!-- Footer -->
-  <footer class="fixed-bottom" include-html="common/footer.html"><script>includeHTML();</script></footer>
+<!-- Footer -->
+<footer include-html="common/footer.html"><script>includeHTML();</script></footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

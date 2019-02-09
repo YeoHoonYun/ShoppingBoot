@@ -29,17 +29,19 @@
 
 
       <div class="col-lg-3">
-
         <!--Category-->
-        <h1 class="my-4">Shop Name</h1>
+        <h1 class="my-4">Yun Shop</h1>
         <form class="navbar-form navbar-left" role="search"  method="post" action="/search">
           <div class="form-group">
             <input type="text" name="search" class="form-control" placeholder="검색">
           </div>
           <button type="submit" class="btn btn-default"></button>
         </form>
-        <ul class="list-group list-group-flush" th:each="category: ${categorys}">
-          <li class="list-group-item" id="myDIV">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="/main">전체 상품</a>
+          </li>
+          <li class="list-group-item" th:each="category: ${categorys}">
             <a th:href="@{/category(category=${category.categoryId})}" th:text="${category.name}">Category 1</a>
           </li>
         </ul>
@@ -81,13 +83,13 @@
 
           <div class="col-lg-4 col-md-6 mb-4" th:each="product: ${products}">
             <div class="card h-100">
-              <a th:href="@{/item(id=${product.productId})}"><img class="card-img-top" th:src="@{${'/img/' + product.filePath}}" alt="" height="250" width="300"></a>
+              <a th:href="@{/item(id=${product.productId})}"><img class="card-img-top" th:src="@{${'/img/' + product.filePath}}" alt="" height="200" width="300"></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a th:href="@{/item(id=${product.productId})}" th:text="${product.name}">Item One</a>
                 </h4>
-                <h5 th:text="${product.price}+'원'"+></h5>
-                <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>-->
+                <h5 th:text="${product.price}+'원'"></h5>
+                <p class="card-text" th:text="'남은 수량 : '+${product.quanity}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
               <!--<div class="card-footer">-->
                 <!--<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>-->
