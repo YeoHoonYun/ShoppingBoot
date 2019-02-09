@@ -6,8 +6,8 @@ body {
   padding-top: 56px;
 }
 footer {
-  position:absolute;
-  bottom:0;
-  width:100%;
+  position: relative;
   height: 100px;
+  bottom: 0;
+  width: 100%;
 }
