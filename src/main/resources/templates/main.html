@@ -54,16 +54,16 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <img class="d-block img-fluid" src="/img/bar/logo.jpg" alt="">
             </div>
-            <div class="carousel-item" th:each="product,iterStat: ${products}">
-              <img class="d-block img-fluid" th:src="${product.filePath != null} ? @{${'/img/bar/' + product.filePath + ''}}" alt="">
+            <div class="carousel-item" th:each="product: ${products}">
+              <img class="d-block img-fluid" th:src="@{${'/img/bar/' + product.filePath + ''}}" alt="">
             </div>
           </div>
 
@@ -81,7 +81,7 @@
 
           <div class="col-lg-4 col-md-6 mb-4" th:each="product: ${products}">
             <div class="card h-100">
-              <a th:href="@{/item(id=${product.productId})}"><img class="card-img-top" th:src="@{${'/img/' + product.filePath + ''}}" alt="" height="250" width="300"></a>
+              <a th:href="@{/item(id=${product.productId})}"><img class="card-img-top" th:src="@{${'/img/' + product.filePath}}" alt="" height="250" width="300"></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a th:href="@{/item(id=${product.productId})}" th:text="${product.name}">Item One</a>
