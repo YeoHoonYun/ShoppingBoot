@@ -5,17 +5,15 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "role")
+@Table(name = "roles")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class Role {
     @Id
-    @Column(name = "idrole")
+    @Column(name = "role_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idrole;
+    private Long roleId;
     @Column(name = "name")
     private String name;
 

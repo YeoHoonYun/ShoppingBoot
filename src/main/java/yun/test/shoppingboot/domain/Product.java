@@ -3,22 +3,21 @@ package yun.test.shoppingboot.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class Product {
     @Id
-    @Column(name = "idproduct")
+    @Column(name = "product_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idproduct;
+    private Long productId;
     @ManyToOne
-    @JoinColumn(name = "idcompany")
+    @JoinColumn(name = "company_id")
     private Company company;
     @Column(name = "name")
     private String name;
@@ -32,4 +31,15 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<Review> reviewList;
 
+    @OneToMany(mappedBy = "product")
+    private List<Order> orderList;
+
+    @OneToMany(mappedBy = "product")
+    private List<Bucket> bucketList;
+
+    public Product() {
+        this.bucketList = new ArrayList<>();
+        this.orderList = new ArrayList<>();
+        this.reviewList = new ArrayList<>();
+    }
 }

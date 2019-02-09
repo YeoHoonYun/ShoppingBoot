@@ -3,32 +3,28 @@ package yun.test.shoppingboot.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "bucket")
+@Table(name = "buckets")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class Bucket {
     @Id
-    @Column(name = "idbucket")
+    @Column(name = "bucket_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idbucket;
+    private Long bucketId;
+
     @ManyToOne
-    @JoinColumn(name="iduser")
+    @JoinColumn(name="user_id")
     private User user;
-    @Column(name = "price")
-    private int price;
+
+    @ManyToOne
+    @JoinColumn(name="product_id")
+    private Product product;
+
     @Column(name = "quantity")
     private int quantity;
-
-    @ManyToMany
-    @JoinTable(name = "bucket_product",
-            joinColumns = {@JoinColumn(name = "bucket_idbucket",referencedColumnName = "idbucket")},
-            inverseJoinColumns = {@JoinColumn(name="product_idproduct",referencedColumnName = "idproduct")}
-    )
-    private List<Product> productList;
 }

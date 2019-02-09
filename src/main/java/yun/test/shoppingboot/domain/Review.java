@@ -6,22 +6,20 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "review")
+@Table(name = "reviews")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class Review {
     @Id
-    @Column(name = "idreview")
+    @Column(name = "review_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idreview;
+    private Long reviewId;
     @ManyToOne
-    @JoinColumn(name = "iduser")
+    @JoinColumn(name = "user_id")
     private User user;
     @ManyToOne
-    @JoinColumn(name = "idproduct")
+    @JoinColumn(name = "product_id")
     private Product product;
     @Column(name = "title")
     private String title;

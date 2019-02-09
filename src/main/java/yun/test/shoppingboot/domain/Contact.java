@@ -6,19 +6,18 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "contact")
+@Table(name = "contacts")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class Contact {
     @Id
+    @Column(name = "contact_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idcontact;
+    private Long contactId;
 
     @ManyToOne
-    @JoinColumn(name = "idcompany")
+    @JoinColumn(name = "company_id")
     private Company company;
     @Column(name = "content")
     private String content;

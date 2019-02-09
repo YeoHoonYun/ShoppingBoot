@@ -4,21 +4,21 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class User {
     @Id
-    @Column(name = "iduser")
+    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long iduser;
+    private Long userId;
     @Column(name = "name")
     private String name;
     @Column(name = "address")
@@ -36,9 +36,9 @@ public class User {
     private List<Bucket> bucketList;
 
     @ManyToMany
-    @JoinTable(name = "role_user",
-            joinColumns = {@JoinColumn(name = "user_iduser",referencedColumnName = "iduser")},
-            inverseJoinColumns = {@JoinColumn(name="role_idrole",referencedColumnName = "idrole")}
+    @JoinTable(name = "roles_users",
+            joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name="role_id",referencedColumnName = "role_id")}
             )
     private Set<Role> roles;
 
@@ -47,4 +47,11 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Review> reviewList;
+
+    public User(List<Bucket> bucketList, Set<Role> roles, List<Order> orderList, List<Review> reviewList) {
+        this.bucketList = new ArrayList<>();
+        this.roles = new HashSet<>();
+        this.orderList = new ArrayList<>();
+        this.reviewList = new ArrayList<>();
+    }
 }
