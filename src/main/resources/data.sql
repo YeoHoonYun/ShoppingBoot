@@ -37,4 +37,6 @@ insert into reviews(review_id, content, reg_date, title, product_id, user_id) va
 
 insert into contacts(contact_id, content, reg_date, company_id) values (1, "contact1", now(), 1);
 insert into contacts(contact_id, content, reg_date, company_id) values (2, "contact2", now(), 1);
+insert into contacts(contact_id, content, reg_date, company_id) values (3, "contact3", now(), 2);
+insert into contacts(contact_id, content, reg_date, company_id) values (4, "contact4", now(), 2);
 
