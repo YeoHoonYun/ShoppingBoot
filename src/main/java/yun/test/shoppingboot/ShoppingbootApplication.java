@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 import javax.sql.DataSource;
 
 @SpringBootApplication
-public class ShoppingbootApplication implements CommandLineRunner {
+public class ShoppingbootApplication extends SpringBootServletInitializer implements CommandLineRunner {
 	@Autowired
 	DataSource dataSource;
 
@@ -18,6 +20,10 @@ public class ShoppingbootApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+	}
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(ShoppingbootApplication.class);
 	}
 }
 
