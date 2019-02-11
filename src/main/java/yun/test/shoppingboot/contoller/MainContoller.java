@@ -1,6 +1,7 @@
 package yun.test.shoppingboot.contoller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +22,9 @@ public class MainContoller {
     ProductService productService;
 
     @GetMapping(value = {"/", "main"})
-    public String main(Model model,
+    public String main(Model model, HttpSecurity security,
                        @RequestParam(value = "p", defaultValue = "1") int p) {
-
+//        security.authorizeRequests().
         model.addAttribute("products",productService.productPageListAll(p-1));
         model.addAttribute("categorys",categoryService.categoryListAll());
         return "main";

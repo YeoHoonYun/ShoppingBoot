@@ -1,6 +1,7 @@
 package yun.test.shoppingboot.contoller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,12 +24,13 @@ public class LoginController {
     ProductService productService;
 
     @GetMapping(value = {"/logout"})
-    public String logout(HttpServletResponse response){
-        Cookie kc = new Cookie("JSESSIONID", null); // choiceCookieName(쿠키 이름)에 대한 값을 null로 지정
-        kc.setMaxAge(0); // 유효시간을 0으로 설정
-        response.addCookie(kc); // 응답 헤더에 추가해서 없어지도록 함
+    public void logout(HttpSecurity security) throws Exception {
+//        Cookie kc = new Cookie("JSESSIONID", null); // choiceCookieName(쿠키 이름)에 대한 값을 null로 지정
+//        kc.setMaxAge(0); // 유효시간을 0으로 설정
+//        response.addCookie(kc); // 응답 헤더에 추가해서 없어지도록 함
+        security.logout().logoutSuccessUrl("/login").permitAll();
 
-        return "/";
+//        return "/";
     }
 
     @GetMapping(value = {"join"})
