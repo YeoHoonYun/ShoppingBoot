@@ -19,6 +19,8 @@ public class Contact {
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+    @Column(name = "title")
+    private String title;
     @Column(name = "content")
     private String content;
     @Column(name = "reg_date")

@@ -56,14 +56,16 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Content</th>
                     <th scope="col">RegDate</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="contact: ${contacts}">
-                    <th scope="row" th:text="${contact.contactId}">1</th>
-                    <td  th:text="${contact.content}">Mark</td>
-                    <td  th:text="${contact.regDate}">Otto</td>
+                    <th scope="row" th:text="${contact.contactId}"></th>
+                    <td  th:text="${contact.title}"></td>
+                    <td  th:text="${contact.content}"></td>
+                    <td  th:text="${contact.regDate}"></td>
                 </tr>
                 </tbody>
             </table>
