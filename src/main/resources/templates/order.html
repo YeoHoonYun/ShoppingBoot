@@ -48,22 +48,55 @@
             <br/>
             <div class="page-header">
                 <div class="col-md-12 col-md-offset-3">
-                    <h3>제휴 회사리스트</h3>
+                    <h3>주문 리스트(결제 전)</h3>
                 </div>
             </div>
             <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">State</th>
+                    <th scope="col">RegDate</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="company: ${companies}">
-                    <th scope="row" th:text="${company.companyId}">1</th>
-                    <td  th:text="${company.name}">Mark</td>
-                    <td  th:text="${company.email}">Otto</td>
+                <tr th:each="order: ${orders_n}">
+                    <th scope="row" th:text="${order.orderId}">1</th>
+                    <td  th:text="${order.quantity}">Mark</td>
+                    <td  th:text="${order.address}">Otto</td>
+                    <td  th:text="${order.state}">Otto</td>
+                    <td  th:text="${order.regDate}">Otto</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br/>
+            <hr/>
+            <br/>
+            <div class="page-header">
+                <div class="col-md-12 col-md-offset-3">
+                    <h3>주문 리스트(결제 후)</h3>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">State</th>
+                    <th scope="col">RegDate</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="order: ${orders_y}">
+                    <th scope="row" th:text="${order.orderId}">1</th>
+                    <td  th:text="${order.quantity}">Mark</td>
+                    <td  th:text="${order.address}">Otto</td>
+                    <td  th:text="${order.state}">Otto</td>
+                    <td  th:text="${order.regDate}">Otto</td>
                 </tr>
                 </tbody>
             </table>

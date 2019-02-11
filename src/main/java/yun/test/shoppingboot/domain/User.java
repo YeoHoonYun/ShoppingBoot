@@ -54,4 +54,12 @@ public class User {
         this.orderList = new ArrayList<>();
         this.reviewList = new ArrayList<>();
     }
+
+    public User(String name, String address, String email, String nickName, String passwd) {
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.nickName = nickName;
+        this.passwd = passwd;
+    }
 }

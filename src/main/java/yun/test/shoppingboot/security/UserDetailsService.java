@@ -34,13 +34,14 @@ public class UserDetailsService implements org.springframework.security.core.use
         Set<Role> roles = user.getRoles();
         for(Role role : roles){
             authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
-            System.out.println(role);
         }
 
-        SecurityUser blogSecurityUser = new SecurityUser(email, user.getPasswd(), authorities);
-        blogSecurityUser.setId(user.getUserId());
-        blogSecurityUser.setName(user.getName());
-        blogSecurityUser.setNickName(user.getNickName());;
-        return blogSecurityUser;
+        SecurityUser securityUser = new SecurityUser(email, user.getPasswd(), authorities);
+        securityUser.setId(user.getUserId());
+        securityUser.setName(user.getName());
+        securityUser.setNickName(user.getNickName());
+        securityUser.setAddress(user.getAddress());
+        securityUser.setRegDate(user.getRegDate());
+        return securityUser;
     }
 }

@@ -25,8 +25,12 @@ insert into products(product_id, file_path, name, price, quanity, company_id, ca
 insert into buckets(bucket_id, quantity, product_id, user_id) values(1, 3,1,2);
 insert into buckets(bucket_id, quantity, product_id, user_id) values(2, 3,2,1);
 
-insert into orders(order_id, address, quantity, state, product_id, user_id, reg_date) values (1, "경기도 안양시", 2, "배송중", 1, 1, now());
-insert into orders(order_id, address, quantity, state, product_id, user_id, reg_date) values (2, "경기도 안산시", 2, "결제중", 2, 2, now());
+insert into orders(order_id, address, quantity, state, product_id, user_id, reg_date) values (1, "경기도 안양시", 2, "Y", 1, 1, now());
+insert into orders(order_id, address, quantity, state, product_id, user_id, reg_date) values (2, "경기도 안산시", 2, "Y", 2, 2, now());
+insert into orders(order_id, address, quantity, state, product_id, user_id, reg_date) values (3, "경기도 안양시", 2, "Y", 6, 1, now());
+insert into orders(order_id, address, quantity, state, product_id, user_id, reg_date) values (4, "경기도 안산시", 2, "N", 3, 2, now());
+insert into orders(order_id, address, quantity, state, product_id, user_id, reg_date) values (5, "경기도 안양시", 2, "N", 4, 1, now());
+insert into orders(order_id, address, quantity, state, product_id, user_id, reg_date) values (6, "경기도 안산시", 2, "N", 5, 2, now());
 
 insert into reviews(review_id, content, reg_date, title, product_id, user_id) values (1, "내용1", now(), "제목1", 1, 1);
 insert into reviews(review_id, content, reg_date, title, product_id, user_id) values (2, "내용2", now(), "제목2", 2, 2);

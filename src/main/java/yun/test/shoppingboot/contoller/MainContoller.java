@@ -1,18 +1,15 @@
 package yun.test.shoppingboot.contoller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import yun.test.shoppingboot.security.SecurityUser;
 import yun.test.shoppingboot.service.CategoryService;
 import yun.test.shoppingboot.service.ProductService;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class MainContoller {
@@ -21,10 +18,15 @@ public class MainContoller {
     @Autowired
     ProductService productService;
 
-    @GetMapping(value = {"/", "main"})
-    public String main(Model model, HttpSecurity security,
+    @GetMapping(value = {"/", "/main"})
+    public String main(Model model, @AuthenticationPrincipal SecurityUser user,
                        @RequestParam(value = "p", defaultValue = "1") int p) {
-//        security.authorizeRequests().
+        try {
+            System.out.println(user.toString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         model.addAttribute("products",productService.productPageListAll(p-1));
         model.addAttribute("categorys",categoryService.categoryListAll());
         return "main";

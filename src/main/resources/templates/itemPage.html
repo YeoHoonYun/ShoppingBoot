@@ -65,17 +65,25 @@
         <!-- /.card -->
 
         <!--button-->
-        <div class="btn-group float-right" role="group" aria-label="Basic example">
-              <a class="btn btn-outline-secondary" href="/main" role="button">목록</a>
-              <a class="btn btn-outline-secondary" href="/main" role="button">리뷰작성</a>
-        </div>
-      <br/>
-          <div class="card card-outline-secondary my-4">
+          <form method="post" action="/item">
+            <div class="form-row">
+              <div class="col-lg-1">
+                <label for="quantity">수량</label>
+              </div>
+              <div class="col-lg-2">
+                <input type="text" class="form-control" id="quantity" placeholder="0">
+              </div>
+              <button class="btn btn-outline-secondary" type="submit">구매</button>
+              <a href="/main"><button class="btn btn-outline-secondary" type="button">취소</button></a>
+              <a href="/main"><button class="btn btn-outline-secondary" type="button">리뷰작성</button></a>
+            </div>
+          </form>
+        <div class="card card-outline-secondary my-4">
           <div class="card-header">
             Product Reviews
           </div>
           <div class="card-body" th:each="review: ${reviews}">
-            <b th:text="${review.user.nickname}"/>
+            <b th:text="${review.user.nickName}"/>
             <p th:text="${review.content}"></p>
             <small class="text-muted" th:text="${review.regDate}"></small>
             <hr>
@@ -83,7 +91,6 @@
           </div>
         </div>
         <!-- /.card -->
-
       </div>
       <!-- /.col-lg-9 -->
 
