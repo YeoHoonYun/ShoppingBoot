@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import yun.test.shoppingboot.service.CategoryService;
 import yun.test.shoppingboot.service.ProductService;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class MainContoller {
     @Autowired
@@ -19,6 +23,7 @@ public class MainContoller {
     @GetMapping(value = {"/", "main"})
     public String main(Model model,
                        @RequestParam(value = "p", defaultValue = "1") int p) {
+
         model.addAttribute("products",productService.productPageListAll(p-1));
         model.addAttribute("categorys",categoryService.categoryListAll());
         return "main";

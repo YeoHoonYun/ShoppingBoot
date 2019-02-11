@@ -1,7 +1,7 @@
 insert into users (user_id, name, address, email, nickname, passwd, reg_date)
- values(1, "admin", "경기도 안산시", "admin@naver.com","Admin", "1234", now());
+ values(1, "admin", "경기도 안산시", "admin@naver.com","Admin", "{bcrypt}$2a$10$aR1Xy3S.lV2W2PRqAQqLoucroroRbzzIBXkvvIyPXzlZ3R/SXC6z.", now());
  insert into users (user_id, name, address, email, nickname, passwd, reg_date)
- values(2, "윤여훈", "경기도 안산시", "cjswo9207@naver.com","Yun", "1234", now());
+ values(2, "윤여훈", "경기도 안산시", "cjswo9207@naver.com","Yun", "{bcrypt}$2a$10$aR1Xy3S.lV2W2PRqAQqLoucroroRbzzIBXkvvIyPXzlZ3R/SXC6z.", now());
 
 insert into categorys(category_id, name) values (1, "생활용품");
 insert into categorys(category_id, name) values (2, "전자제품");

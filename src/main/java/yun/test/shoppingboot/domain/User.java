@@ -26,7 +26,7 @@ public class User {
     @Column(name = "email")
     private String email;
     @Column(name = "nickname")
-    private String nickname;
+    private String nickName;
     @Column(name = "passwd")
     private String passwd;
     @Column(name = "reg_date")
