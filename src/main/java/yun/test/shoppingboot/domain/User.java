@@ -3,6 +3,10 @@ package yun.test.shoppingboot.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,11 +18,14 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
 public class User {
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
+    @NotNull
+    @Size(min = 2, max = 20)
     @Column(name = "name")
     private String name;
     @Column(name = "address")
@@ -55,11 +62,9 @@ public class User {
         this.reviewList = new ArrayList<>();
     }
 
-    public User(String name, String address, String email, String nickName, String passwd) {
-        this.name = name;
-        this.address = address;
-        this.email = email;
-        this.nickName = nickName;
-        this.passwd = passwd;
+    public void addRole(Role role) {
+        if(roles == null)
+            roles = new HashSet<>();
+        roles.add(role);
     }
 }
