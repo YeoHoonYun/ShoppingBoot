@@ -1,27 +1,23 @@
 package yun.test.shoppingboot.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Repository;
-import yun.test.shoppingboot.dao.CategoryDao;
-import yun.test.shoppingboot.dao.CompanyDao;
-import yun.test.shoppingboot.domain.Category;
+import org.springframework.stereotype.Service;
 import yun.test.shoppingboot.domain.Company;
+import yun.test.shoppingboot.repository.CompanyRepository;
 
-import java.util.List;
-
-@Repository
+@Service
+@RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
-    @Autowired
-    CompanyDao companyDao;
+    private final CompanyRepository companyRepository;
 
     private final static int MAX_SIZE = 10;
 
     public Page<Company> categoryListAll(int p){
         Pageable page = PageRequest.of(p,MAX_SIZE);
-        Page<Company> companies = companyDao.categoryListAll(page);
+        Page<Company> companies = companyRepository.getCompanyByAll(page);
         return companies;
     }
 }

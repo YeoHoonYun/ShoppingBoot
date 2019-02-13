@@ -1,19 +1,22 @@
 package yun.test.shoppingboot.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import yun.test.shoppingboot.dao.ReviewDao;
+import org.springframework.transaction.annotation.Transactional;
 import yun.test.shoppingboot.domain.Review;
+import yun.test.shoppingboot.repository.ReviewRepository;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ReviewServiceImpl implements ReviewService{
-    @Autowired
-    ReviewDao reviewDao;
+    private final ReviewRepository reviewRepository;
+
     @Override
+    @Transactional(readOnly = true)
     public List<Review> getReviewByProductId(Long id) {
-        List<Review> reviews = reviewDao.getReviewByProductId(id);
+        List<Review> reviews = reviewRepository.getReviewByProductId(id);
         return reviews;
     }
 }

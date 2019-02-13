@@ -76,8 +76,9 @@
                         th:name="${_csrf.parameterName}"
                         th:value="${_csrf.token}" />
                 <div class="text">
-                <a class="btn btn-default pull-right" href="/login">취소</a>
-                <button type="submit" class="btn btn-default pull-right">가입</button>
+                    <button type="submit" class="btn btn-default pull-right">가입</button>
+                    <a class="btn btn-default pull-right" href="/login">취소</a>
+                </div>
             </form>
         </div>
     </div>
@@ -85,9 +86,10 @@
 
 </article >
 <!-- /.article  -->
-
+<br/>
+<br/>
 <!-- Footer -->
-<footer class="fixed-bottom" include-html="common/footer.html"><script>includeHTML();</script></footer>
+<!--<footer class="fixed-bottom" include-html="common/footer.html"><script>includeHTML();</script></footer>-->
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
