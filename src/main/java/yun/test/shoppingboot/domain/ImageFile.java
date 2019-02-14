@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "image_file")
+@Table(name = "image")
 @Setter
 @Getter
 public class ImageFile {

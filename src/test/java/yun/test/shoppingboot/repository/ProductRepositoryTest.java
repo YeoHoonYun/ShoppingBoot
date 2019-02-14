@@ -23,10 +23,10 @@ public class ProductRepositoryTest {
     @Test
     public void productAll() throws Exception{
         Pageable page = PageRequest.of(0,6);
-        Page<Product> all = productRepository.getProductAll(page);
-        System.out.println(all.getTotalElements());
+        List<Product> all = productRepository.findAll();
+//        System.out.println(all.getTotalElements());
         for(Product product : all){
-            System.out.println(product.getName());
+            System.out.println(product.getCategory().getCategoryId());
         }
     }
 

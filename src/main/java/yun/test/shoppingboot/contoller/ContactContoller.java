@@ -1,6 +1,6 @@
 package yun.test.shoppingboot.contoller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +11,10 @@ import yun.test.shoppingboot.service.CategoryService;
 import yun.test.shoppingboot.service.ContactService;
 
 @Controller
+@RequiredArgsConstructor
 public class ContactContoller {
-    @Autowired
-    CategoryService categoryService;
-    @Autowired
-    ContactService contactService;
+    private final CategoryService categoryService;
+    private final ContactService contactService;
 
     @GetMapping(value = {"/company/contact"})
     public String contactMain(Model model,

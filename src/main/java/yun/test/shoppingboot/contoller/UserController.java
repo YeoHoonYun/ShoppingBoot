@@ -1,6 +1,6 @@
 package yun.test.shoppingboot.contoller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -18,13 +18,11 @@ import yun.test.shoppingboot.service.UserServiceImpl;
  * Github : https://github.com/YeoHoonYun
  */
 @Controller
-public class LoginController {
-    @Autowired
-    CategoryService categoryService;
-    @Autowired
-    ProductService productService;
-    @Autowired
-    UserServiceImpl userService;
+@RequiredArgsConstructor
+public class UserController {
+    private final CategoryService categoryService;
+    private final ProductService productService;
+    private final UserServiceImpl userService;
 
     @GetMapping("/user/login")
     public String login(
@@ -35,7 +33,11 @@ public class LoginController {
         return "/user/login"; // view name 을 리턴한다.
     }
 
-//    @GetMapping(value = {"/logout"})
+    @GetMapping(value = {"/logout"})
+    public String logout(){
+
+        return "/user/login";
+    }
 //    public void logout(HttpSecurity security) throws Exception {
 ////        Cookie kc = new Cookie("JSESSIONID", null); // choiceCookieName(쿠키 이름)에 대한 값을 null로 지정
 ////        kc.setMaxAge(0); // 유효시간을 0으로 설정
@@ -43,12 +45,12 @@ public class LoginController {
 //        security.logout().logoutSuccessUrl("/login").permitAll();
 //    }
 
-    @GetMapping(value = {"/join"})
+    @GetMapping(value = {"/user/join"})
     public String main(Model model,
                        @RequestParam(value = "p", defaultValue = "1") int p) {
         model.addAttribute("products",productService.productPageListAll(p-1));
         model.addAttribute("categorys",categoryService.categoryListAll());
-        return "join";
+        return "/user/join";
     }
 
 //    에러 체크

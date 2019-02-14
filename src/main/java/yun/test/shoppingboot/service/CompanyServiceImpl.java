@@ -15,9 +15,10 @@ public class CompanyServiceImpl implements CompanyService {
 
     private final static int MAX_SIZE = 10;
 
-    public Page<Company> categoryListAll(int p){
+    public Page<Company> companyListAll(int p){
         Pageable page = PageRequest.of(p,MAX_SIZE);
         Page<Company> companies = companyRepository.getCompanyByAll(page);
         return companies;
     }
+
 }

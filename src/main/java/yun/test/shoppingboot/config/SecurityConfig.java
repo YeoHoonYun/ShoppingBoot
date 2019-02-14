@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .logout() // logout설정
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/main")
+                .logoutSuccessUrl("/user/login")
                 .permitAll()
                 .and()
                 .authorizeRequests() // 인가에 대한 설정
@@ -46,7 +46,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/order/**").permitAll()
                 .antMatchers("/product/**").permitAll()
                 .antMatchers("/review/**").permitAll()
+                .antMatchers("/user/login").permitAll()
+                .antMatchers("/user/join").permitAll()
+                .antMatchers("/search").permitAll()
                 .antMatchers("/user/**").hasAnyRole("USER","COMPANY" ,"ADMIN")
+                .antMatchers("/product/**").hasAnyRole("USER","COMPANY" ,"ADMIN")
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().fullyAuthenticated()
                 .and()
@@ -55,6 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/user/login") // 사용자가 입력한 id, password가 전달되는 url경로(필터가처리)
                 .usernameParameter("email")
                 .passwordParameter("password")
-                .failureUrl("/main");
+                .failureUrl("/user/login?fail=true");
     }
 }

@@ -1,6 +1,6 @@
 package yun.test.shoppingboot.contoller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +12,10 @@ import yun.test.shoppingboot.service.CategoryService;
 import yun.test.shoppingboot.service.ProductService;
 
 @Controller
+@RequiredArgsConstructor
 public class MainContoller {
-    @Autowired
-    CategoryService categoryService;
-    @Autowired
-    ProductService productService;
+    private final CategoryService categoryService;
+    private final ProductService productService;
 
     @GetMapping(value = {"/", "/main"})
     public String main(Model model, @AuthenticationPrincipal SecurityUser user,
@@ -29,7 +28,7 @@ public class MainContoller {
 
         model.addAttribute("products",productService.productPageListAll(p-1));
         model.addAttribute("categorys",categoryService.categoryListAll());
-        return "/main";
+        return "main";
     }
     @GetMapping(value = {"/category"})
     public String categoryMain(Model model,
@@ -37,7 +36,7 @@ public class MainContoller {
                              @RequestParam(value = "p", defaultValue = "1") int p) {
         model.addAttribute("products",productService.productByCategory(categoryId,p-1));
         model.addAttribute("categorys",categoryService.categoryListAll());
-        return "/main";
+        return "main";
     }
 
     @PostMapping(value = {"/search"})
