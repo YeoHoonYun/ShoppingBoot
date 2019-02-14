@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import yun.test.shoppingboot.security.SecurityUser;
 import yun.test.shoppingboot.service.CategoryService;
@@ -29,7 +30,7 @@ public class MainContoller {
 
         model.addAttribute("products",productService.productPageListAll(p-1));
         model.addAttribute("categorys",categoryService.categoryListAll());
-        return "main";
+        return "/main";
     }
     @GetMapping(value = {"/category"})
     public String categoryMain(Model model,
@@ -37,15 +38,16 @@ public class MainContoller {
                              @RequestParam(value = "p", defaultValue = "1") int p) {
         model.addAttribute("products",productService.productByCategory(categoryId,p-1));
         model.addAttribute("categorys",categoryService.categoryListAll());
-        return "main";
+        return "/main";
     }
 
-    @PostMapping(value = {"/search"})
+    @RequestMapping(value = {"/search"})
     public String searchMain(Model model,
-                               @RequestParam(value = "search", defaultValue = "") String name,
-                               @RequestParam(value = "p", defaultValue = "1") int p) {
+                               @RequestParam(value = "name",required = false, defaultValue = "") String name,
+                               @RequestParam(value = "p",required = false, defaultValue = "1") int p) {
+        System.out.println("fffffffffffffffffffffffff"+name);
         model.addAttribute("products",productService.productByName(name,p-1));
         model.addAttribute("categorys",categoryService.categoryListAll());
-        return "main";
+        return "/main";
     }
 }

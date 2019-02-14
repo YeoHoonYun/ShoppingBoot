@@ -17,6 +17,6 @@ public class AboutController {
     @GetMapping(value = "/about")
     public String about(Model model, HttpServletResponse response){
         model.addAttribute("categorys",categoryService.categoryListAll());
-        return "about";
+        return "/about";
     }
 }

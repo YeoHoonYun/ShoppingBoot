@@ -20,6 +20,6 @@ public class CompanyContoller {
                        @RequestParam(value = "p", defaultValue = "1") int p) {
         model.addAttribute("categorys",categoryService.categoryListAll());
         model.addAttribute("companies", companyService.categoryListAll(p-1));
-        return "company";
+        return "/company";
     }
 }

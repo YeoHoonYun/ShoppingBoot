@@ -10,8 +10,8 @@ insert into roles (role_id, name) values (1, 'USER');
 insert into roles (role_id, name) values (2, 'COMPANY');
 insert into roles (role_id, name) values (3, 'ADMIN');
 
-insert into roles_users(user_id, role_id) values( 1, 1);
-insert into roles_users(user_id, role_id) values( 2, 2);
+insert into roles_users(user_id, role_id) values( 1, 3);
+insert into roles_users(user_id, role_id) values( 2, 1);
 
 insert into companys(company_id, email, name) values(1, "Company@gmail.com","YunCompany");
 insert into companys(company_id, email, name) values(2, "Computer@gmail.com","YunComputer");

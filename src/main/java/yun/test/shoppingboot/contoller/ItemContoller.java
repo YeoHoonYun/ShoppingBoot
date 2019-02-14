@@ -24,6 +24,6 @@ public class ItemContoller {
         model.addAttribute("product", productService.productById(id));
         model.addAttribute("reviews", reviewService.getReviewByProductId(id));
         model.addAttribute("categorys",categoryService.categoryListAll());
-        return "itemPage";
+        return "/itemPage";
     }
 }

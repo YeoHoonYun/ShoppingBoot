@@ -21,6 +21,6 @@ public class OrderContoller {
         model.addAttribute("categorys", categoryService.categoryListAll());
         model.addAttribute("orders_y", orderService.orderByAll("Y",p-1));
         model.addAttribute("orders_n", orderService.orderByAll("N",p-1));
-        return "order";
+        return "/order";
     }
 }

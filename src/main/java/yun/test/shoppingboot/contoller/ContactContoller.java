@@ -27,6 +27,6 @@ public class ContactContoller {
         model.addAttribute("categorys",categoryService.categoryListAll());
         model.addAttribute("companyname", contacts.iterator().next().getCompany().getName());
         model.addAttribute("contacts", contacts);
-        return "contact";
+        return "/contact";
     }
 }
