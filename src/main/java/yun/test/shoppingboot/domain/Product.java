@@ -40,20 +40,20 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<Bucket> bucketList;
 
-    @OneToMany(mappedBy = "post",
-            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    private List<ImageFile> imageFiles;
+//    @OneToMany(mappedBy = "post",
+//            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+//    private List<ImageFile> imageFiles;
 
     public Product() {
         this.bucketList = new ArrayList<>();
         this.orderList = new ArrayList<>();
         this.reviewList = new ArrayList<>();
-        this.imageFiles = new ArrayList<>();
+//        this.imageFiles = new ArrayList<>();
     }
-    public void addImageFile(ImageFile imageFile){
-        if(imageFiles == null)
-            imageFiles = new ArrayList<>();
-        imageFile.setProduct(this);
-        imageFiles.add(imageFile);
-    }
+//    public void addImageFile(ImageFile imageFile){
+//        if(imageFiles == null)
+//            imageFiles = new ArrayList<>();
+//        imageFile.setProduct(this);
+//        imageFiles.add(imageFile);
+//    }
 }
