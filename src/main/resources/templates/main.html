@@ -83,10 +83,10 @@
 
           <div class="col-lg-4 col-md-6 mb-4" th:each="product: ${products}">
             <div class="card h-100">
-              <a th:href="@{/item(id=${product.productId})}"><img class="card-img-top" th:src="@{${'/img/' + product.filePath}}" alt="" height="200" width="300"></a>
+              <a th:href="@{/product/detail(id=${product.productId})}"><img class="card-img-top" th:src="@{${'/img/' + product.filePath}}" alt="" height="200" width="300"></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a th:href="@{/item(id=${product.productId})}" th:text="${product.name}">Item One</a>
+                  <a th:href="@{/product/detail(id=${product.productId})}" th:text="${product.name}">Item One</a>
                 </h4>
                 <h5 th:text="${product.price}+'원'"></h5>
                 <p class="card-text" th:text="'남은 수량 : '+${product.quanity}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>

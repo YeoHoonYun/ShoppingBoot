@@ -6,12 +6,12 @@ insert into users (user_id, name, address, email, nickname, passwd, reg_date)
 insert into categorys(category_id, name) values (1, "생활용품");
 insert into categorys(category_id, name) values (2, "전자제품");
 
-insert into roles (role_id, name) values (1, 'USER');
+insert into roles (role_id, name) values (1, 'ADMIN');
 insert into roles (role_id, name) values (2, 'COMPANY');
-insert into roles (role_id, name) values (3, 'ADMIN');
+insert into roles (role_id, name) values (3, 'USER');
 
 insert into roles_users(user_id, role_id) values( 1, 1);
-insert into roles_users(user_id, role_id) values( 2, 2);
+insert into roles_users(user_id, role_id) values( 2, 3);
 
 insert into companys(company_id, email, name) values(1, "Company@gmail.com","YunCompany");
 insert into companys(company_id, email, name) values(2, "Computer@gmail.com","YunComputer");

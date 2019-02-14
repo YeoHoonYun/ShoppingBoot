@@ -10,8 +10,6 @@ import yun.test.shoppingboot.domain.Contact;
 import yun.test.shoppingboot.service.CategoryService;
 import yun.test.shoppingboot.service.ContactService;
 
-import javax.servlet.ServletContext;
-
 @Controller
 public class ContactContoller {
     @Autowired
@@ -19,7 +17,7 @@ public class ContactContoller {
     @Autowired
     ContactService contactService;
 
-    @GetMapping(value = {"/contact"})
+    @GetMapping(value = {"/company/contact"})
     public String contactMain(Model model,
                        @RequestParam(value = "p", defaultValue = "1") int p,
                        @RequestParam(value = "id", required = false, defaultValue = "") Long id) {
@@ -27,6 +25,6 @@ public class ContactContoller {
         model.addAttribute("categorys",categoryService.categoryListAll());
         model.addAttribute("companyname", contacts.iterator().next().getCompany().getName());
         model.addAttribute("contacts", contacts);
-        return "contact";
+        return "/company/contact";
     }
 }

@@ -15,11 +15,11 @@ public class CompanyContoller {
     @Autowired
     CompanyService companyService;
 
-    @GetMapping(value = {"/company"})
+    @GetMapping(value = {"/company/list"})
     public String companyMain(Model model,
                        @RequestParam(value = "p", defaultValue = "1") int p) {
         model.addAttribute("categorys",categoryService.categoryListAll());
         model.addAttribute("companies", companyService.categoryListAll(p-1));
-        return "company";
+        return "/company/list";
     }
 }

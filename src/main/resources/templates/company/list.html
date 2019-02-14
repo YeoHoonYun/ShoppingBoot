@@ -62,7 +62,7 @@
                 <tbody>
                 <tr th:each="company: ${companies}">
                     <th scope="row" th:text="${company.companyId}">1</th>
-                    <td><a th:text="${company.name}" th:href="@{/contact(id=${company.companyId})}">Mark</a></td>
+                    <td><a th:text="${company.name}" th:href="@{/company/contact(id=${company.companyId})}">Mark</a></td>
                     <td th:text="${company.email}">Otto</td>
                 </tr>
                 </tbody>
