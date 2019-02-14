@@ -18,5 +18,4 @@ public class Navigator {
 
     @Column(name = "name")
     private String name;
-
 }
