@@ -1,5 +1,6 @@
 package yun.test.shoppingboot.contoller;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -15,6 +16,7 @@ import yun.test.shoppingboot.domain.User;
 import yun.test.shoppingboot.service.CategoryService;
 import yun.test.shoppingboot.service.ProductService;
 import yun.test.shoppingboot.service.UserService;
+import yun.test.shoppingboot.service.UserServiceImpl;
 
 import javax.validation.Valid;
 
@@ -23,11 +25,13 @@ import javax.validation.Valid;
  * Github : https://github.com/YeoHoonYun
  */
 @Controller
-@RequiredArgsConstructor
 public class LoginController {
+    @Autowired
     CategoryService categoryService;
+    @Autowired
     ProductService productService;
-    UserService userService;
+    @Autowired
+    UserServiceImpl userService;
 
     @GetMapping("/login")
     public String login(
