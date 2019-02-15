@@ -1,6 +1,6 @@
 package yun.test.shoppingboot.contoller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,11 +9,10 @@ import yun.test.shoppingboot.service.CategoryService;
 import yun.test.shoppingboot.service.OrderService;
 
 @Controller
+@RequiredArgsConstructor
 public class OrderContoller {
-    @Autowired
-    CategoryService categoryService;
-    @Autowired
-    OrderService orderService;
+    private final CategoryService categoryService;
+    private final OrderService orderService;
 
     @GetMapping(value = {"/order"})
     public String orderMain(Model model,

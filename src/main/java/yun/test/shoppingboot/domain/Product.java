@@ -1,6 +1,7 @@
 package yun.test.shoppingboot.domain;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,7 +11,6 @@ import java.util.List;
 @Table(name = "products")
 @Getter
 @Setter
-@ToString
 public class Product {
     @Id
     @Column(name = "product_id")
@@ -40,9 +40,21 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<Bucket> bucketList;
 
+    @OneToMany(
+            mappedBy = "product",
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    private List<ImageFile> imageFiles;
+
     public Product() {
         this.bucketList = new ArrayList<>();
         this.orderList = new ArrayList<>();
         this.reviewList = new ArrayList<>();
+        this.imageFiles = new ArrayList<>();
+    }
+    public void addImageFile(ImageFile imageFile){
+        if(imageFiles == null)
+            imageFiles = new ArrayList<>();
+        imageFile.setProduct(this);
+        imageFiles.add(imageFile);
     }
 }

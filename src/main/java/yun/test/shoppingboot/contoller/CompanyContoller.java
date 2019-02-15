@@ -1,6 +1,6 @@
 package yun.test.shoppingboot.contoller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,17 +9,16 @@ import yun.test.shoppingboot.service.CategoryService;
 import yun.test.shoppingboot.service.CompanyService;
 
 @Controller
+@RequiredArgsConstructor
 public class CompanyContoller {
-    @Autowired
-    CategoryService categoryService;
-    @Autowired
-    CompanyService companyService;
+    private final CategoryService categoryService;
+    private final CompanyService companyService;
 
-    @GetMapping(value = {"/company"})
+    @GetMapping(value = {"/company/list"})
     public String companyMain(Model model,
                        @RequestParam(value = "p", defaultValue = "1") int p) {
         model.addAttribute("categorys",categoryService.categoryListAll());
-        model.addAttribute("companies", companyService.categoryListAll(p-1));
-        return "/company";
+        model.addAttribute("companies", companyService.companyListAll(p-1));
+        return "/company/list";
     }
 }

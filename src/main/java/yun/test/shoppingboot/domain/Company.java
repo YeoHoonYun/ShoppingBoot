@@ -10,7 +10,6 @@ import java.util.List;
 @Table(name = "companys")
 @Getter
 @Setter
-@ToString
 public class Company {
     @Id
     @Column(name = "company_id")
@@ -21,7 +20,8 @@ public class Company {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<Product> productList;
     @OneToMany(mappedBy = "company")
     private List<Contact> contactList;

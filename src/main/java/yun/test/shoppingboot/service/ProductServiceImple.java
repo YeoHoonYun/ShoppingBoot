@@ -6,13 +6,19 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import yun.test.shoppingboot.domain.Category;
+import yun.test.shoppingboot.domain.Company;
 import yun.test.shoppingboot.domain.Product;
+import yun.test.shoppingboot.repository.CategoryRepository;
+import yun.test.shoppingboot.repository.CompanyRepository;
 import yun.test.shoppingboot.repository.ProductRepository;
 
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImple implements ProductService {
     private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
+    private final CompanyRepository companyRepository;
     private final static int MAX_SIZE = 6;
 
     @Transactional(readOnly = true)
@@ -43,5 +49,16 @@ public class ProductServiceImple implements ProductService {
         Pageable page = PageRequest.of(p,MAX_SIZE);
         Page<Product> products = productRepository.getProductByName(name, page);
         return products;
+    }
+    @Override
+    @Transactional
+    public void addProduct(Product product, Long categoryId, Long companyId){
+        Category category = categoryRepository.countByOne(categoryId);
+        Company company = companyRepository.countByCompanyId(companyId);
+        System.out.println(category);
+        System.out.println(company);
+        product.setCategory(category);
+        product.setCompany(company);
+        productRepository.save(product);
     }
 }
