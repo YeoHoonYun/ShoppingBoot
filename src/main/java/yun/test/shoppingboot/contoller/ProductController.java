@@ -93,7 +93,7 @@ public class ProductController {
         return "redirect:/main";
     }
     private String saveFile(MultipartFile image){
-        String dir = "C:\\Users\\tlsot\\Desktop";
+        String dir = "C:\\Users\\Public\\";
         Calendar calendar = Calendar.getInstance();
         dir = dir + calendar.get(Calendar.YEAR);
         dir = dir + "\\";

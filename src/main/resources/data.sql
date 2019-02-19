@@ -17,12 +17,12 @@ insert into roles_users(user_id, role_id) values( 2, 2);
 insert into companys(company_id, email, name) values(1, "Company@gmail.com","YunCompany");
 insert into companys(company_id, email, name) values(2, "Computer@gmail.com","YunComputer");
 
-# insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(1, "key.jpg","Key",1000,5,1,1);
-# insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(2, "stay.jpg","Stay",2000,5,1,1);
-# insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(3, "zi.jpg","Zi",3000,5,1,1);
-# insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(4, "mouse.jpg","Mouse",15000,5,2,2);
-# insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(5, "keyboard.jpg","Keyboard",35000,5,2,2);
-# insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(6, "moniter.jpg","Moniter",30000,5,2,2);
+insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(1, "key.jpg","Key",1000,5,1,1);
+insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(2, "stay.jpg","Stay",2000,5,1,1);
+insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(3, "zi.jpg","Zi",3000,5,1,1);
+insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(4, "mouse.jpg","Mouse",15000,5,2,2);
+insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(5, "keyboard.jpg","Keyboard",35000,5,2,2);
+insert into products(product_id, file_path, name, price, quanity, company_id, category_id) values(6, "moniter.jpg","Moniter",30000,5,2,2);
 
 insert into buckets(bucket_id, quantity, product_id, user_id) values(1, 3,1,2);
 insert into buckets(bucket_id, quantity, product_id, user_id) values(2, 3,2,1);
